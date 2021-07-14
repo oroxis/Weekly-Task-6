@@ -77,4 +77,29 @@ document.getElementById('email2').innerHTML = `${email2}`;
                     })
 .catch((error) => console.log(error));
 
+const pCard3 = document.getElementsByClassName('card2')
+fetch('https://randomuser.me/api/?results=30')
+.then((resp) => resp.json())
+.then(function(data) {
+let users3 = data.results
+return users3.map((user3) => {console.log(user3);
+                
+let firstName3 = user3.name.first;
+let lastName3 = user3.name.last;
+let email3 = user3.email;
+let nationality3 = user3.location.country;
+let city3 = user3.location.city;
+let photo3 = document.getElementById('profilePics3');
+                
+photo3.src = user3.picture.large;
+                
+document.getElementById('name3').innerHTML = `${firstName3} ${lastName3}`;                      
+document.getElementById('natn3').innerHTML = `${nationality3}`;
+document.getElementById('city3').innerHTML = `${city3}`;
+document.getElementById('email3').innerHTML = `${email3}`;
+                               
+                        });
+                    })
+.catch((error) => console.log(error));
+
 
